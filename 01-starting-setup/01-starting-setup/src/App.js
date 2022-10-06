@@ -26,15 +26,33 @@ function App() {
     {
       id: "e4",
       title: "New Desk (Wooden)",
-      location:"Jaipur",
+      location: "Jaipur",
       amount: 450,
       date: new Date(2021, 5, 12),
     },
+    {
+      id: "e5",
+      title: "Vacation",
+      location: "Goa",
+      amount: 500,
+      date: new Date(2021, 2, 2),
+    }
   ];
   return (
     <div>
       <h2>Let's get started!</h2>
-      <ExpenseItem
+      {expenses.map((expenses) => {
+        return (
+          <ExpenseItem 
+          title={expenses.title}
+            location={expenses.location}
+            amount={expenses.amount}
+            date={expenses.date}
+            key={expenses.id}
+          ></ExpenseItem>
+        );
+      })}
+      {/* <ExpenseItem
         title={expenses[0].title}
         location={expenses[0].location}
         amount={expenses[0].amount}
@@ -57,7 +75,7 @@ function App() {
         location={expenses[3].location}
         amount={expenses[3].amount}
         date={expenses[3].date}
-      ></ExpenseItem>
+      ></ExpenseItem> */}
     </div>
   );
 }
